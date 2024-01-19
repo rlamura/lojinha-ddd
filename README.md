@@ -2,9 +2,8 @@
 
 ## Estrutura da Aplicação - Parte 1
 
----
 
-**Requisitos:**
+### Requisitos:
 
 1. **ASP.NET Core 6.0:** Framework principal para desenvolvimento web em C#.
 2. **Entity Framework Core 6.0:** ORM para manipulação de banco de dados.
@@ -18,7 +17,7 @@
 
 ---
 
-**Instalação de Recursos:**
+### Instalação de Recursos:
 
 1. **ASP.NET Core 6.0:**
    - [Download e instruções](https://dotnet.microsoft.com/download/dotnet/6.0)
@@ -62,7 +61,7 @@
 
 ---
 
-**Preparação de Ambientes:**
+## Preparação de Ambientes:
 
 1. **Configuração do Banco de Dados:**
    - Configure sua conexão SQL Server no arquivo `appsettings.json`.
@@ -80,7 +79,7 @@
 
 ---
 
-**Referências:**
+## Referências:
 
 1. [ASP.NET Core Documentation](https://docs.microsoft.com/en-us/aspnet/core)
 2. [Entity Framework Core Documentation](https://docs.microsoft.com/en-us/ef/core/)
