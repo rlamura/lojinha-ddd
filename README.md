@@ -93,101 +93,84 @@
 
 ---
 
-Essa estrutura fornece as bases necessárias para desenvolver uma aplicação utilizando ASP.NET Core 6.0 com as tecnologias mencionadas. Na Parte 2, iremos desenvolver os modelos, repositórios, queries, comandos e controllers para as entidades sugeridas.
 
 -----
-
-**Estrutura do Projeto:**
+**Estrutura do Projeto - Lojinha:**
 ```
-ApiPesquisa
-|-- ApiPesquisa.sln
+Lojinha
+|-- Lojinha.sln
 |-- src
-    |-- ApiPesquisa.Domain
+    |-- Lojinha.Domain
         |-- Entities
         |-- ValueObjects
         |-- Contracts
-    |-- ApiPesquisa.Infrastructure
+    |-- Lojinha.Infrastructure
         |-- Data
         |-- Repositories
         |-- Migrations
-    |-- ApiPesquisa.Application
+    |-- Lojinha.Application
         |-- Services
-    |-- ApiPesquisa.Api
+    |-- Lojinha.Api
         |-- Controllers
-    |-- ApiPesquisa.Tests
+    |-- Lojinha.Tests
         |-- UnitTests
 |-- tools
 |-- docs
 ```
 
-**ApiPesquisa.Domain:**
-Nesta camada, vamos adicionar todas as entidades, value objects e contratos (interfaces).
-
-**ApiPesquisa.Infrastructure:**
-Esta camada será responsável pelo acesso a dados, portanto, vamos colocar as configurações do Entity Framework, repositórios e migrações aqui.
-
-**ApiPesquisa.Application:**
-A camada de aplicação será responsável por coordenar a lógica de negócios e interação entre as entidades e a infraestrutura.
-
-**ApiPesquisa.Api:**
-Esta é a camada de apresentação, onde configuramos os controllers que expõem as APIs e integram a aplicação com a interface do usuário.
-
-**ApiPesquisa.Tests:**
-Esta camada conterá todos os testes unitários para as diferentes partes do projeto.
-
-**Instruções de Configuração:**
+**Instruções de Configuração - Lojinha:**
 
 1. **Criar a Solution:**
    ```bash
-   dotnet new sln -n ApiPesquisa
+   dotnet new sln -n Lojinha
    ```
 
 2. **Criar os Projetos:**
    ```bash
-   dotnet new classlib -n ApiPesquisa.Domain
-   dotnet new classlib -n ApiPesquisa.Infrastructure
-   dotnet new classlib -n ApiPesquisa.Application
-   dotnet new webapi -n ApiPesquisa.Api
-   dotnet new xunit -n ApiPesquisa.Tests
+   dotnet new classlib -n Lojinha.Domain
+   dotnet new classlib -n Lojinha.Infrastructure
+   dotnet new classlib -n Lojinha.Application
+   dotnet new webapi -n Lojinha.Api
+   dotnet new xunit -n Lojinha.Tests
    ```
 
 3. **Adicionar Projetos à Solution:**
    ```bash
-   dotnet sln add src/ApiPesquisa.Domain/ApiPesquisa.Domain.csproj
-   dotnet sln add src/ApiPesquisa.Infrastructure/ApiPesquisa.Infrastructure.csproj
-   dotnet sln add src/ApiPesquisa.Application/ApiPesquisa.Application.csproj
-   dotnet sln add src/ApiPesquisa.Api/ApiPesquisa.Api.csproj
-   dotnet sln add src/ApiPesquisa.Tests/ApiPesquisa.Tests.csproj
+   dotnet sln add src/Lojinha.Domain/Lojinha.Domain.csproj
+   dotnet sln add src/Lojinha.Infrastructure/Lojinha.Infrastructure.csproj
+   dotnet sln add src/Lojinha.Application/Lojinha.Application.csproj
+   dotnet sln add src/Lojinha.Api/Lojinha.Api.csproj
+   dotnet sln add src/Lojinha.Tests/Lojinha.Tests.csproj
    ```
 
 4. **Adicionar Referências entre Projetos:**
-   - Em `ApiPesquisa.Domain.csproj`:
+   - Em `Lojinha.Domain.csproj`:
      ```xml
      <ItemGroup>
        <PackageReference Include="Flunt.Br" Version="3.0.0" />
      </ItemGroup>
      ```
-   - Em `ApiPesquisa.Infrastructure.csproj`:
+   - Em `Lojinha.Infrastructure.csproj`:
      ```xml
      <ItemGroup>
        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.0" />
        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.0" />
      </ItemGroup>
      <ItemGroup>
-       <ProjectReference Include="../ApiPesquisa.Domain/ApiPesquisa.Domain.csproj" />
+       <ProjectReference Include="../Lojinha.Domain/Lojinha.Domain.csproj" />
      </ItemGroup>
      ```
-   - Em `ApiPesquisa.Application.csproj`:
+   - Em `Lojinha.Application.csproj`:
      ```xml
      <ItemGroup>
-       <ProjectReference Include="../ApiPesquisa.Domain/ApiPesquisa.Domain.csproj" />
-       <ProjectReference Include="../ApiPesquisa.Infrastructure/ApiPesquisa.Infrastructure.csproj" />
+       <ProjectReference Include="../Lojinha.Domain/Lojinha.Domain.csproj" />
+       <ProjectReference Include="../Lojinha.Infrastructure/Lojinha.Infrastructure.csproj" />
      </ItemGroup>
      ```
-   - Em `ApiPesquisa.Api.csproj`:
+   - Em `Lojinha.Api.csproj`:
      ```xml
      <ItemGroup>
-       <ProjectReference Include="../ApiPesquisa.Application/ApiPesquisa.Application.csproj" />
+       <ProjectReference Include="../Lojinha.Application/Lojinha.Application.csproj" />
      </ItemGroup>
      ```
 
@@ -195,15 +178,14 @@ Esta camada conterá todos os testes unitários para as diferentes partes do pro
    - Dentro de cada projeto, crie pastas de acordo com a estrutura proposta (por exemplo, Entities, ValueObjects, Contracts, Data, Repositories, etc.).
 
 6. **Configurar DbContext e Migrations:**
-   - Em `ApiPesquisa.Infrastructure/Data` crie o `ApplicationDbContext`.
+   - Em `Lojinha.Infrastructure/Data` crie o `ApplicationDbContext`.
    - Execute as migrações: `dotnet ef migrations add InitialCreate` e `dotnet ef database update`.
 
 7. **Configurar Controllers e Startup na API:**
-   - Em `ApiPesquisa.Api/Controllers` crie os controllers.
-   - Configure a injeção de dependência e os serviços no `Startup.cs` em `ApiPesquisa.Api`.
+   - Em `Lojinha.Api/Controllers` crie os controllers.
+   - Configure a injeção de dependência e os serviços no `Startup.cs` em `Lojinha.Api`.
 
 8. **Configurar Testes:**
-   - Em `ApiPesquisa.Tests` configure os testes unitários para as diferentes partes do projeto.
+   - Em `Lojinha.Tests` configure os testes unitários para as diferentes partes do projeto.
 
-**Observação:**
-Este é um esboço básico e você pode ajustar conforme a complexidade e requisitos específicos do seu projeto. Certifique-se de instalar as versões mais recentes dos pacotes e ferramentas, pois as versões específicas mencionadas anteriormente podem ter sido atualizadas desde então.
+Lembre-se de ajustar conforme necessário de acordo com os requisitos específicos do seu projeto e considere sempre a documentação oficial das ferramentas e frameworks utilizados para obter informações mais detalhadas sobre configurações específicas.
