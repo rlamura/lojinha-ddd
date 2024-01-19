@@ -1,6 +1,6 @@
 # LOJINHA 
 
-**Estrutura da Aplicação - Parte 1**
+## Estrutura da Aplicação - Parte 1
 
 ---
 
